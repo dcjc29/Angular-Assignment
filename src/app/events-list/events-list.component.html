@@ -1,0 +1,9 @@
+<ngb-accordion *ngFor="let e of eventsInADay">
+        <ngb-panel id="{{e.id}}" title="{{e.name}}">
+          <ng-template ngbPanelContent>
+           <h2>{{e.startTime}}</h2>
+            <h2>{{e.endTime}}</h2>
+            <app-event-update-form></app-event-update-form>
+          </ng-template>
+        </ngb-panel>
+</ngb-accordion>
