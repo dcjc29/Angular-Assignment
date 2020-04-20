@@ -1,11 +1,13 @@
+import {NgbDate} from '@ng-bootstrap/ng-bootstrap';
+
 export class Event {
 
   constructor(
-    public id: number,
+    public id: string,
     public name: string,
-    public day: string,
-    public startTime: string,
-    public endTime: string
+    public day: Date,
+    public startTime: { hour: number; minute: number },
+    public endTime: { hour: number; minute: number }
   ) {  }
 
 }

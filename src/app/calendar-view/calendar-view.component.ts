@@ -1,18 +1,7 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  ViewChild,
-  TemplateRef,
-} from '@angular/core';
+import {Component, ChangeDetectionStrategy, ViewChild, TemplateRef, Output, EventEmitter} from '@angular/core';
 import {
   startOfDay,
   endOfDay,
-  subDays,
-  addDays,
-  endOfMonth,
-  isSameDay,
-  isSameMonth,
-  addHours,
 } from 'date-fns';
 import { Subject } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -82,20 +71,19 @@ export class CalendarViewComponent{
 
   activeDayIsOpen = true;
 
+  @Output() dateSelectEvent = new EventEmitter();
+
+  sendDate(){
+    this.dateSelectEvent.emit(this.viewDate);
+  }
+
   constructor(private modal: NgbModal) {}
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
-    if (isSameMonth(date, this.viewDate)) {
-      if (
-        (isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) ||
-        events.length === 0
-      ) {
-        this.activeDayIsOpen = false;
-      } else {
-        this.activeDayIsOpen = true;
-      }
+
       this.viewDate = date;
-    }
+      this.sendDate();
+
   }
 
   eventTimesChanged({
@@ -148,5 +136,6 @@ export class CalendarViewComponent{
 
   closeOpenMonthViewDay() {
     this.activeDayIsOpen = false;
+    this.sendDate();
   }
 }

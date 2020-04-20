@@ -10,37 +10,37 @@
       <div class="form-group">
         <label for="eventName">Name Of The Event</label>
         <div class="input-group">
-          <input id="eventName" type="text" class="form-control" placeholder="Enter Name">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="dateOfEvent">Event Date</label>
-        <div class="input-group">
-          <input id="dateOfEvent" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary" (click)="dp.toggle()" type="button"></button>
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="startTime">Start Time(24hr Format)</label>
-        <div class="input-group">
-          <ngb-timepicker id="startTime" [spinners]="false" [meridian]="false"></ngb-timepicker>
+          <input id="eventName" name="eventName" [(ngModel)]="eventName"  type="text" class="form-control" placeholder="Enter Name">
         </div>
 
       </div>
       <div class="form-group">
-        <label for="endTime">End Time(24Hr Format)</label>
+        <label for="dateOfEvent">Event Date</label>
         <div class="input-group">
-          <ngb-timepicker id="endTime" [spinners]="false" [meridian]="false"></ngb-timepicker>
+          <input id="dateOfEvent" [(ngModel)]="model"  class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" (click)="dp.toggle()" type="button"></button>
+          </div>
+
         </div>
+      </div>
+      <div class="form-group">
+        <label>Start Time (24hr Format)</label>
+        <ngb-timepicker [(ngModel)]="startTime" name="stp"></ngb-timepicker>
+
+      </div>
+      <div class="form-group">
+        <label>Start Time (24hr Format)</label>
+        <ngb-timepicker [(ngModel)]="endTime" name="stp"></ngb-timepicker>
+
 
       </div>
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Add Event</button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click');addEvent();">Add Event</button>
   </div>
 </ng-template>
 
 <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Add A New Event</button>
+

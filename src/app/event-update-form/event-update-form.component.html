@@ -1,6 +1,6 @@
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Update Event</h4>
+    <h4 class="modal-title" id="modal-basic-title">Update Event - {{event.name}}</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -10,13 +10,13 @@
       <div class="form-group">
         <label for="eventName">Name Of The Event</label>
         <div class="input-group">
-          <input id="eventName" type="text" class="form-control" placeholder="Enter Name">
+          <input id="eventName" name="eventName" [(ngModel)]="eventName" type="text" class="form-control" placeholder="Enter Name">
         </div>
       </div>
       <div class="form-group">
         <label for="dateOfEvent">Event Date</label>
         <div class="input-group">
-          <input id="dateOfEvent" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+          <input id="dateOfEvent" [(ngModel)]="model" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
           <div class="input-group-append">
             <button class="btn btn-outline-secondary" (click)="dp.toggle()" type="button"></button>
           </div>
@@ -25,21 +25,21 @@
       <div class="form-group">
         <label for="startTime">Start Time(24hr Format)</label>
         <div class="input-group">
-          <ngb-timepicker id="startTime" [spinners]="false" [meridian]="false"></ngb-timepicker>
+          <ngb-timepicker id="startTime" name="startTime" [(ngModel)]="startTime" [spinners]="false" [meridian]="false"></ngb-timepicker>
         </div>
 
       </div>
       <div class="form-group">
         <label for="endTime">End Time(24Hr Format)</label>
         <div class="input-group">
-          <ngb-timepicker id="endTime" [spinners]="false" [meridian]="false"></ngb-timepicker>
+          <ngb-timepicker id="endTime" name="endTime" [(ngModel)]="endTime" [spinners]="false" [meridian]="false"></ngb-timepicker>
         </div>
 
       </div>
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Add Event</button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click'); updateEvent()">Update Event</button>
   </div>
 </ng-template>
 

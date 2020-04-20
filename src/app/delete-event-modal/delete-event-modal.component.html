@@ -1,0 +1,16 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Delete Event - {{event.name}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Are You Sure? This Action Cannot Be Reversed</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-danger" (click)="modal.close('Delete Click');deleteEvent();">Delete</button>
+  </div>
+</ng-template>
+
+<button class="btn btn-lg btn-outline-danger" (click)="open(content)">Delete Event</button>
