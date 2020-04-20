@@ -1,4 +1,4 @@
-<h2>Event List : </h2>
+<h3>Event List : {{selectedDate.toLocaleDateString()}}</h3>
 <ngb-accordion *ngFor="let e of eventsInADay">
         <ngb-panel id="{{e.id}}" title="{{e.name}}">
           <ng-template ngbPanelContent>

@@ -13,7 +13,7 @@ export class EventAddFormComponent {
   model: NgbDateStruct;
   startTime = {hour: 13, minute: 30};
   endTime = {hour: 14, minute: 30};
-  eventName = 'Dureksha';
+  eventName = '';
 
   @Output() addNewEventEvent = new EventEmitter();
 

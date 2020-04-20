@@ -1,0 +1,9 @@
+<p id="ceneter">
+  <ngb-alert [dismissible]="false">
+    <h4><strong>Next Event! is in {{timeRemainingHour}} HH and {{timeRemainingMinute}} MM {{timeRemainingSeconds}} SS</strong></h4>
+    <p>Event Name - {{nextEvent.name}}</p>
+    <p>Event Date - {{nextEvent.day.toDateString()}}</p>
+    <p>Start Time - {{nextEvent.startTime.hour}} : {{nextEvent.startTime.minute}} || End Time - {{nextEvent.endTime.hour}} : {{nextEvent.endTime.minute}}</p>
+    <p>Duration - {{timeDuratingHour}} HH and {{timeDuratingMinute}} MM {{timeDuratingSeconds}} SS </p>
+  </ngb-alert>
+</p>

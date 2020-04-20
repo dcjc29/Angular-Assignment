@@ -13,6 +13,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CalendarViewComponent } from './calendar-view/calendar-view.component';
 import { EventUpdateFormComponent } from './event-update-form/event-update-form.component';
 import { DeleteEventModalComponent } from './delete-event-modal/delete-event-modal.component';
+import { NextEventSectionComponent } from './next-event-section/next-event-section.component';
 
 @NgModule({
     declarations: [
@@ -23,7 +24,8 @@ import { DeleteEventModalComponent } from './delete-event-modal/delete-event-mod
         CalendarViewComponent,
         EventUpdateFormComponent,
         EventsListComponent,
-        DeleteEventModalComponent
+        DeleteEventModalComponent,
+        NextEventSectionComponent
     ],
   imports: [
     BrowserModule,

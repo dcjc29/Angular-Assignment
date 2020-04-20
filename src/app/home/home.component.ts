@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Event} from '../../event';
 
 @Component({
@@ -6,14 +6,16 @@ import {Event} from '../../event';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
-  event = new  Event('0', 'Event 1', new Date('2020-04-25'), {hour: 15, minute: 30}, {hour: 16, minute: 30});
-  event2 = new  Event('1', 'Event 2', new Date('2020-04-26'), {hour: 22, minute: 30}, {hour: 23, minute: 30});
-  event3 = new  Event('2', 'Event 3', new Date('2020-04-20'), {hour: 15, minute: 40}, {hour: 15, minute: 50});
+export class HomeComponent implements OnInit{
+  event = new  Event('0', 'Sample Event 1', new Date('2020-04-30'), {hour: 15, minute: 30}, {hour: 16, minute: 30});
+  event2 = new  Event('1', 'Sample Event 2', new Date('2020-05-02'), {hour: 22, minute: 30}, {hour: 23, minute: 30});
+  event3 = new  Event('2', 'Sample Event 3', new Date('2020-05-05'), {hour: 18, minute: 2}, {hour: 18, minute: 3});
   eventList = [];
   eventsInADay: Event[];
   selectedDate =  new Date();
   nextEvent: Event;
+  duration: {hours: number, minute: number, seconds: number};
+  remaining: {hours: number, minute: number, seconds: number};
   constructor() { }
 
   ngOnInit(): void {
@@ -29,6 +31,7 @@ export class HomeComponent implements OnInit {
   receiveNewEvent($event){
     this.eventList.push($event);
     this.sortEventList();
+    this.updateData();
   }
 
   deleteEvent($event){
@@ -79,6 +82,6 @@ export class HomeComponent implements OnInit {
     }
     this.eventsInADay = events;
     this.nextEvent = this.eventList[0];
-  }
 
+  }
 }
